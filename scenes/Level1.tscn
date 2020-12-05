@@ -17,7 +17,7 @@ extents = Vector2( 960, 535 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 3 )
-NB_BOT = 1
+NB_BOT = 10
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 0, -2.99664 )
@@ -267,8 +267,14 @@ text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TimerTimeLeft" type="Timer" parent="."]
+
+[node name="Smokes" type="Node2D" parent="."]
+[connection signal="smoke" from="Objects/Player1" to="." method="_on_smoke"]
 [connection signal="on_totem_touched" from="Objects/Totem1" to="." method="_on_totem_touched"]
 [connection signal="on_totem_touched" from="Objects/Totem2" to="." method="_on_totem_touched"]
 [connection signal="on_totem_touched" from="Objects/Totem3" to="." method="_on_totem_touched"]
 [connection signal="on_totem_touched" from="Objects/Totem4" to="." method="_on_totem_touched"]
 [connection signal="on_totem_touched" from="Objects/Totem5" to="." method="_on_totem_touched"]
+[connection signal="timeout" from="TimerTimeLeft" to="." method="_on_TimerTimeLeft_timeout"]

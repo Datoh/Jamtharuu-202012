@@ -1,6 +1,9 @@
 extends Node2D
 
 export (int) var NB_BOT := 50
+export (int) var level_duration := 180
+
+onready var time = find_node("Time")
 
 var scores_label = {}
 
@@ -21,9 +24,28 @@ func _ready() -> void:
   scores_label[find_node("Player2")] = find_node("ScorePlayer2")
   scores_label[find_node("Player3")] = find_node("ScorePlayer3")
   scores_label[find_node("Player4")] = find_node("ScorePlayer4")
+  
+  find_node("TimerTimeLeft").start()
+  set_time()
 
 
 func _on_totem_touched(player, totem) -> void:
   if player.touch_totem(totem):
     scores_label[player].text = str(player.totem_touched_count)
     print(player, " ", player.totem_touched_count)
+
+
+func _on_TimerTimeLeft_timeout() -> void:
+  level_duration -= 1
+  set_time()
+  
+func set_time() -> void:
+  var seconds = level_duration % 60
+  var minutes = (level_duration - seconds) / 60
+  time.text = str(minutes) + ":" + str(seconds).pad_zeros(2)
+
+
+func _on_smoke(position) -> void:
+  var smoke = preload("res://scenes/Smoke.tscn").instance()
+  smoke.position = position
+  find_node("Smokes").add_child(smoke)

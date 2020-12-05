@@ -5,6 +5,7 @@ export (float) var speed := 200
 enum State {MOVING, DIYNG, IDLING}
 
 onready var timer := $Timer
+onready var animation_player = find_node("AnimationPlayer")
 
 const IDLE_MIN_TIME = 0.3
 const IDLE_MAX_TIME = 3.0
@@ -16,7 +17,7 @@ var move_area := Rect2()
 var move_destination := Vector2()
 var velocity := Vector2()
 
-var current_state = State.IDLING
+var state = State.IDLING
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
@@ -31,14 +32,14 @@ func init_position(move_area_: Rect2) -> void:
 
 
 func _physics_process(delta: float) -> void:
-  if current_state == State.MOVING:
+  if state == State.MOVING:
     move_and_collide(velocity * delta)
     if abs(position.distance_to(move_destination)) < 10.0:
       next_state()
 
 
 func next_state() -> void:
-  match current_state:
+  match state:
     State.IDLING:
       move()
     State.MOVING:
@@ -48,12 +49,19 @@ func next_state() -> void:
 
 
 func idle() -> void:
-  current_state = State.IDLING
+  state = State.IDLING
   timer.start(rng.randf_range(IDLE_MIN_TIME, IDLE_MAX_TIME))
 
 
+func die() -> void:
+  if state == State.DIYNG:
+    return
+  state = State.DIYNG
+  animation_player.play("die")
+  
+
 func move() -> void:
-  current_state = State.MOVING
+  state = State.MOVING
   var new_position_ok := false
   while !new_position_ok:
     velocity.x = rng.randf_range(MIN_MOVE_DISTANCE, MAX_MOVE_DISTANCE)
@@ -66,4 +74,8 @@ func move() -> void:
 
 
 func _on_Timer_timeout() -> void:
+  next_state()
+
+
+func _on_animation_finished(anim_name) -> void:
   next_state()
