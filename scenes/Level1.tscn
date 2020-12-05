@@ -1,0 +1,274 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/images/lvl1_background.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Level1.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Totem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/font48.tres" type="DynamicFont" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1116.3, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13.8552, 614.002 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 960, 535 )
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 3 )
+NB_BOT = 1
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 0, -2.99664 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Walls" type="Node2D" parent="."]
+visible = false
+
+[node name="Area2D" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D"]
+position = Vector2( 947.649, -7.55099 )
+shape = SubResource( 1 )
+
+[node name="Area2D2" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D2"]
+position = Vector2( 938.211, 1085.46 )
+shape = SubResource( 1 )
+
+[node name="Area2D3" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D3"]
+position = Vector2( -13.2144, 536.121 )
+shape = SubResource( 2 )
+
+[node name="Area2D4" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Area2D4"]
+position = Vector2( 1934.94, 470.049 )
+shape = SubResource( 2 )
+
+[node name="Objects" type="YSort" parent="."]
+
+[node name="Player1" parent="Objects" instance=ExtResource( 2 )]
+collision_layer = 3
+
+[node name="Player2" parent="Objects" instance=ExtResource( 2 )]
+collision_layer = 3
+input_id = 0
+
+[node name="Player3" parent="Objects" instance=ExtResource( 2 )]
+collision_layer = 3
+input_id = 1
+
+[node name="Player4" parent="Objects" instance=ExtResource( 2 )]
+collision_layer = 3
+input_id = 2
+
+[node name="Totem1" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 480, 360 )
+collision_layer = 2
+
+[node name="Totem2" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1440, 360 )
+collision_layer = 2
+
+[node name="Totem3" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 480, 810 )
+collision_layer = 2
+
+[node name="Totem4" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1440, 810 )
+collision_layer = 2
+
+[node name="Totem5" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 960, 540 )
+collision_layer = 2
+
+[node name="MoveableArea" type="Area2D" parent="."]
+visible = false
+monitoring = false
+monitorable = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoveableArea"]
+position = Vector2( 960, 537 )
+shape = SubResource( 3 )
+
+[node name="UI" type="MarginContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1000.0
+custom_constants/margin_top = 950
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+margin_top = 950.0
+margin_right = 1920.0
+margin_bottom = 1060.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLabel" type="Label" parent="UI/VBoxContainer"]
+margin_left = 929.0
+margin_right = 990.0
+margin_bottom = 34.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Time"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="UI/VBoxContainer"]
+margin_left = 933.0
+margin_top = 38.0
+margin_right = 986.0
+margin_bottom = 72.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0:00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scores" type="GridContainer" parent="UI/VBoxContainer"]
+margin_top = 76.0
+margin_right = 1920.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container1" type="HBoxContainer" parent="UI/VBoxContainer/Scores"]
+margin_left = 169.0
+margin_right = 308.0
+margin_bottom = 34.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="UI/VBoxContainer/Scores/Container1"]
+margin_right = 119.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player 1:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScorePlayer1" type="Label" parent="UI/VBoxContainer/Scores/Container1"]
+margin_left = 123.0
+margin_right = 139.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container2" type="HBoxContainer" parent="UI/VBoxContainer/Scores"]
+margin_left = 650.0
+margin_right = 789.0
+margin_bottom = 34.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="UI/VBoxContainer/Scores/Container2"]
+margin_right = 119.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player 2:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScorePlayer2" type="Label" parent="UI/VBoxContainer/Scores/Container2"]
+margin_left = 123.0
+margin_right = 139.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container3" type="HBoxContainer" parent="UI/VBoxContainer/Scores"]
+margin_left = 1131.0
+margin_right = 1270.0
+margin_bottom = 34.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="UI/VBoxContainer/Scores/Container3"]
+margin_right = 119.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player 3:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScorePlayer3" type="Label" parent="UI/VBoxContainer/Scores/Container3"]
+margin_left = 123.0
+margin_right = 139.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container4" type="HBoxContainer" parent="UI/VBoxContainer/Scores"]
+margin_left = 1612.0
+margin_right = 1751.0
+margin_bottom = 34.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="UI/VBoxContainer/Scores/Container4"]
+margin_right = 119.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player 4:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScorePlayer4" type="Label" parent="UI/VBoxContainer/Scores/Container4"]
+margin_left = 123.0
+margin_right = 139.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="on_totem_touched" from="Objects/Totem1" to="." method="_on_totem_touched"]
+[connection signal="on_totem_touched" from="Objects/Totem2" to="." method="_on_totem_touched"]
+[connection signal="on_totem_touched" from="Objects/Totem3" to="." method="_on_totem_touched"]
+[connection signal="on_totem_touched" from="Objects/Totem4" to="." method="_on_totem_touched"]
+[connection signal="on_totem_touched" from="Objects/Totem5" to="." method="_on_totem_touched"]
