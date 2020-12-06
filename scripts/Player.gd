@@ -7,13 +7,16 @@ enum State {MOVING, DIYNG, DIED, LAUNCHING_SMOKE, APPLYING_SMOKE, FIGHTING, FIGH
 var state = State.MOVING
 
 signal smoke(position)
+signal player_die(player)
 
 onready var animation_player = find_node("AnimationPlayer")
+onready var sprite = find_node("Character")
 onready var weapon_area = find_node("WeaponArea")
 
 var rng = RandomNumberGenerator.new()
 var totem_touched: Node2D = null
 var totem_touched_count := 0
+var alive := true
 
 export (int, 0, 4) var input_id = 4
 
@@ -49,6 +52,12 @@ func _physics_process(delta: float) -> void:
     velocity = velocity.normalized() * speed
     move_and_collide(velocity * delta)
     
+    var anim = "idle" if velocity == Vector2.ZERO else "move"
+    if animation_player.current_animation != anim:
+      animation_player.play(anim)
+    if velocity != Vector2.ZERO:
+      sprite.scale.x = 1 if velocity.x > 0 else -1
+
     if smoke_count > 0 and Input.is_action_just_pressed("ui_smoke_" + str(input_id)):
       launch_smoke()
     
@@ -72,11 +81,13 @@ func next_state() -> void:
 
 func move() -> void:
   state = State.MOVING
+  animation_player.play("move")
 
 
 func fight() -> void:
   state = State.FIGHTING
   animation_player.play("fight")
+  weapon_area.scale = sprite.scale
   weapon_area.monitoring = true
 
 
@@ -84,13 +95,14 @@ func die() -> void:
   if state == State.DIYNG or state == State.DIED:
     return
   state = State.DIYNG
+  alive = false
   animation_player.play("die")
 
 
 func remove() -> void:
   state = State.DIED
-  queue_free()
-
+  emit_signal("player_die", self)
+  
 
 func fight_result() -> void:
   state = State.MOVING

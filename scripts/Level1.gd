@@ -38,6 +38,8 @@ func _on_totem_touched(player, totem) -> void:
 func _on_TimerTimeLeft_timeout() -> void:
   level_duration -= 1
   set_time()
+  if level_duration == 0:
+    end()
   
 func set_time() -> void:
   var seconds = level_duration % 60
@@ -49,3 +51,28 @@ func _on_smoke(position) -> void:
   var smoke = preload("res://scenes/Smoke.tscn").instance()
   smoke.position = position
   find_node("Smokes").add_child(smoke)
+
+
+func _on_player_die(player) -> void:
+  var players_alive = 0
+  for player in get_tree().get_nodes_in_group("player"):
+    players_alive += 1 if player.alive else 0
+  if players_alive < 2:
+    end()
+
+
+func end() -> void:
+  var winner = null
+  var draw := false
+  for player in get_tree().get_nodes_in_group("player"):
+    if player.alive:
+      if winner != null and winner.score == player.score:
+        draw = true
+      elif winner == null or winner.score < player.score:
+        draw = false
+        winner = player
+  if draw:
+    print("draw")
+  else:
+    print("winner is: ", winner)
+

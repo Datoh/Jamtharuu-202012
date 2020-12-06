@@ -17,7 +17,7 @@ extents = Vector2( 960, 535 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 3 )
-NB_BOT = 10
+NB_BOT = 1
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 0, -2.99664 )
@@ -157,25 +157,25 @@ __meta__ = {
 }
 
 [node name="Container1" type="HBoxContainer" parent="UI/VBoxContainer/Scores"]
-margin_left = 169.0
-margin_right = 308.0
+margin_left = 146.0
+margin_right = 330.0
 margin_bottom = 34.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="UI/VBoxContainer/Scores/Container1"]
-margin_right = 119.0
+margin_right = 164.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player 1:"
+text = "Player One: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScorePlayer1" type="Label" parent="UI/VBoxContainer/Scores/Container1"]
-margin_left = 123.0
-margin_right = 139.0
+margin_left = 168.0
+margin_right = 184.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -185,25 +185,25 @@ __meta__ = {
 }
 
 [node name="Container2" type="HBoxContainer" parent="UI/VBoxContainer/Scores"]
-margin_left = 650.0
-margin_right = 789.0
+margin_left = 625.0
+margin_right = 814.0
 margin_bottom = 34.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="UI/VBoxContainer/Scores/Container2"]
-margin_right = 119.0
+margin_right = 169.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player 2:"
+text = "Player Two: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScorePlayer2" type="Label" parent="UI/VBoxContainer/Scores/Container2"]
-margin_left = 123.0
-margin_right = 139.0
+margin_left = 173.0
+margin_right = 189.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -213,25 +213,25 @@ __meta__ = {
 }
 
 [node name="Container3" type="HBoxContainer" parent="UI/VBoxContainer/Scores"]
-margin_left = 1131.0
-margin_right = 1270.0
+margin_left = 1094.0
+margin_right = 1307.0
 margin_bottom = 34.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="UI/VBoxContainer/Scores/Container3"]
-margin_right = 119.0
+margin_right = 193.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player 3:"
+text = "Player Three: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScorePlayer3" type="Label" parent="UI/VBoxContainer/Scores/Container3"]
-margin_left = 123.0
-margin_right = 139.0
+margin_left = 197.0
+margin_right = 213.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -241,25 +241,25 @@ __meta__ = {
 }
 
 [node name="Container4" type="HBoxContainer" parent="UI/VBoxContainer/Scores"]
-margin_left = 1612.0
-margin_right = 1751.0
+margin_left = 1583.0
+margin_right = 1780.0
 margin_bottom = 34.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="UI/VBoxContainer/Scores/Container4"]
-margin_right = 119.0
+margin_right = 177.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player 4:"
+text = "Player Four: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScorePlayer4" type="Label" parent="UI/VBoxContainer/Scores/Container4"]
-margin_left = 123.0
-margin_right = 139.0
+margin_left = 181.0
+margin_right = 197.0
 margin_bottom = 34.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -271,7 +271,14 @@ __meta__ = {
 [node name="TimerTimeLeft" type="Timer" parent="."]
 
 [node name="Smokes" type="Node2D" parent="."]
+[connection signal="player_die" from="Objects/Player1" to="." method="_on_player_die"]
 [connection signal="smoke" from="Objects/Player1" to="." method="_on_smoke"]
+[connection signal="player_die" from="Objects/Player2" to="." method="_on_player_die"]
+[connection signal="smoke" from="Objects/Player2" to="." method="_on_smoke"]
+[connection signal="player_die" from="Objects/Player3" to="." method="_on_player_die"]
+[connection signal="smoke" from="Objects/Player3" to="." method="_on_smoke"]
+[connection signal="player_die" from="Objects/Player4" to="." method="_on_player_die"]
+[connection signal="smoke" from="Objects/Player4" to="." method="_on_smoke"]
 [connection signal="on_totem_touched" from="Objects/Totem1" to="." method="_on_totem_touched"]
 [connection signal="on_totem_touched" from="Objects/Totem2" to="." method="_on_totem_touched"]
 [connection signal="on_totem_touched" from="Objects/Totem3" to="." method="_on_totem_touched"]

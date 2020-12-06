@@ -6,6 +6,7 @@ enum State {MOVING, DIYNG, IDLING}
 
 onready var timer := $Timer
 onready var animation_player = find_node("AnimationPlayer")
+onready var sprite = find_node("Character")
 
 const IDLE_MIN_TIME = 0.3
 const IDLE_MAX_TIME = 3.0
@@ -34,6 +35,12 @@ func init_position(move_area_: Rect2) -> void:
 func _physics_process(delta: float) -> void:
   if state == State.MOVING:
     move_and_collide(velocity * delta)
+
+    var anim = "idle" if velocity == Vector2.ZERO else "move"
+    if animation_player.current_animation != anim:
+      animation_player.play(anim)
+    sprite.scale.x = 1 if velocity.x > 0 else -1
+
     if abs(position.distance_to(move_destination)) < 10.0:
       next_state()
 
@@ -51,6 +58,7 @@ func next_state() -> void:
 func idle() -> void:
   state = State.IDLING
   timer.start(rng.randf_range(IDLE_MIN_TIME, IDLE_MAX_TIME))
+  animation_player.play("idle")
 
 
 func die() -> void:
@@ -58,6 +66,7 @@ func die() -> void:
     return
   state = State.DIYNG
   animation_player.play("die")
+  timer.stop()
   
 
 func move() -> void:
