@@ -71,13 +71,9 @@ func _on_player_die(player) -> void:
 
 func end() -> void:
   var winner = null
-  var draw := false
   for player in get_tree().get_nodes_in_group("player"):
     if player.alive:
-      if winner != null and winner.score == player.score:
-        draw = true
-      elif winner == null or winner.score < player.score:
-        draw = false
+      if winner == null or winner.score < player.score:
         winner = player
   var winner_id := -1
   if winner == find_node("Player1"):
@@ -90,4 +86,3 @@ func end() -> void:
     winner_id = 3
   Global.winner = winner_id
   get_tree().change_scene("res://scenes/Score.tscn")
-
