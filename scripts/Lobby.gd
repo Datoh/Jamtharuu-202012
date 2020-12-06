@@ -5,6 +5,7 @@ var ready_to_start := false
 
 func _ready() -> void:
   Global.players_input_id = [ -1, -1, -1, -1]
+  Global.players_scores = [ 0, 0, 0, 0]
 
 
 func _physics_process(delta: float) -> void:

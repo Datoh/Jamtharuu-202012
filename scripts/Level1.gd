@@ -79,8 +79,15 @@ func end() -> void:
       elif winner == null or winner.score < player.score:
         draw = false
         winner = player
-  if draw:
-    print("draw")
-  else:
-    print("winner is: ", winner)
+  var winner_id := -1
+  if winner == find_node("Player1"):
+    winner_id = 0
+  elif winner == find_node("Player2"):
+    winner_id = 1
+  if winner == find_node("Player3"):
+    winner_id = 2
+  if winner == find_node("Player4"):
+    winner_id = 3
+  Global.winner = winner_id
+  get_tree().change_scene("res://scenes/Score.tscn")
 
