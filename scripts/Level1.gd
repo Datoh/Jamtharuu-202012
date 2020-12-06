@@ -1,7 +1,7 @@
 extends Node2D
 
 export (int) var NB_BOT := 50
-export (int) var level_duration := 180
+export (int) var level_duration := 90
 
 onready var time = find_node("Time")
 

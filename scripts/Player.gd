@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-export (float) var speed := 200
-export (int) var smoke_count := 10
+export (float) var speed := 130
+export (int) var smoke_count := 1
 
 enum State {MOVING, DIYNG, DIED, LAUNCHING_SMOKE, APPLYING_SMOKE, FIGHTING, FIGHTING_RESULT}
 var state = State.MOVING
