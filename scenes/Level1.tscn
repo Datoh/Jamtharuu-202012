@@ -17,7 +17,7 @@ extents = Vector2( 960, 535 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 3 )
-NB_BOT = 1
+NB_BOT = 0
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 0, -2.99664 )
@@ -54,19 +54,20 @@ shape = SubResource( 2 )
 [node name="Objects" type="YSort" parent="."]
 
 [node name="Player1" parent="Objects" instance=ExtResource( 2 )]
+visible = false
 collision_layer = 3
 
 [node name="Player2" parent="Objects" instance=ExtResource( 2 )]
+visible = false
 collision_layer = 3
-input_id = 0
 
 [node name="Player3" parent="Objects" instance=ExtResource( 2 )]
+visible = false
 collision_layer = 3
-input_id = 1
 
 [node name="Player4" parent="Objects" instance=ExtResource( 2 )]
+visible = false
 collision_layer = 3
-input_id = 2
 
 [node name="Totem1" parent="Objects" instance=ExtResource( 4 )]
 position = Vector2( 480, 360 )
@@ -110,7 +111,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 margin_top = 950.0
 margin_right = 1920.0
-margin_bottom = 1060.0
+margin_bottom = 1072.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -120,9 +121,9 @@ __meta__ = {
 }
 
 [node name="TimeLabel" type="Label" parent="UI/VBoxContainer"]
-margin_left = 929.0
-margin_right = 990.0
-margin_bottom = 34.0
+margin_left = 925.0
+margin_right = 994.0
+margin_bottom = 38.0
 size_flags_horizontal = 6
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
@@ -133,10 +134,10 @@ __meta__ = {
 }
 
 [node name="Time" type="Label" parent="UI/VBoxContainer"]
-margin_left = 933.0
-margin_top = 38.0
-margin_right = 986.0
-margin_bottom = 72.0
+margin_left = 930.0
+margin_top = 42.0
+margin_right = 990.0
+margin_bottom = 80.0
 size_flags_horizontal = 6
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
@@ -147,9 +148,9 @@ __meta__ = {
 }
 
 [node name="Scores" type="GridContainer" parent="UI/VBoxContainer"]
-margin_top = 76.0
+margin_top = 84.0
 margin_right = 1920.0
-margin_bottom = 110.0
+margin_bottom = 122.0
 size_flags_horizontal = 3
 columns = 4
 __meta__ = {
@@ -157,15 +158,15 @@ __meta__ = {
 }
 
 [node name="Container1" type="HBoxContainer" parent="UI/VBoxContainer/Scores"]
-margin_left = 146.0
-margin_right = 330.0
-margin_bottom = 34.0
+margin_left = 134.0
+margin_right = 342.0
+margin_bottom = 38.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="UI/VBoxContainer/Scores/Container1"]
-margin_right = 164.0
-margin_bottom = 34.0
+margin_right = 186.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player One: "
@@ -174,9 +175,9 @@ __meta__ = {
 }
 
 [node name="ScorePlayer1" type="Label" parent="UI/VBoxContainer/Scores/Container1"]
-margin_left = 168.0
-margin_right = 184.0
-margin_bottom = 34.0
+margin_left = 190.0
+margin_right = 208.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
@@ -185,15 +186,15 @@ __meta__ = {
 }
 
 [node name="Container2" type="HBoxContainer" parent="UI/VBoxContainer/Scores"]
-margin_left = 625.0
-margin_right = 814.0
-margin_bottom = 34.0
+margin_left = 612.0
+margin_right = 826.0
+margin_bottom = 38.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="UI/VBoxContainer/Scores/Container2"]
-margin_right = 169.0
-margin_bottom = 34.0
+margin_right = 192.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player Two: "
@@ -202,9 +203,9 @@ __meta__ = {
 }
 
 [node name="ScorePlayer2" type="Label" parent="UI/VBoxContainer/Scores/Container2"]
-margin_left = 173.0
-margin_right = 189.0
-margin_bottom = 34.0
+margin_left = 196.0
+margin_right = 214.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
@@ -213,15 +214,15 @@ __meta__ = {
 }
 
 [node name="Container3" type="HBoxContainer" parent="UI/VBoxContainer/Scores"]
-margin_left = 1094.0
-margin_right = 1307.0
-margin_bottom = 34.0
+margin_left = 1080.0
+margin_right = 1321.0
+margin_bottom = 38.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="UI/VBoxContainer/Scores/Container3"]
-margin_right = 193.0
-margin_bottom = 34.0
+margin_right = 219.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player Three: "
@@ -230,9 +231,9 @@ __meta__ = {
 }
 
 [node name="ScorePlayer3" type="Label" parent="UI/VBoxContainer/Scores/Container3"]
-margin_left = 197.0
-margin_right = 213.0
-margin_bottom = 34.0
+margin_left = 223.0
+margin_right = 241.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
@@ -241,15 +242,15 @@ __meta__ = {
 }
 
 [node name="Container4" type="HBoxContainer" parent="UI/VBoxContainer/Scores"]
-margin_left = 1583.0
-margin_right = 1780.0
-margin_bottom = 34.0
+margin_left = 1570.0
+margin_right = 1793.0
+margin_bottom = 38.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="UI/VBoxContainer/Scores/Container4"]
-margin_right = 177.0
-margin_bottom = 34.0
+margin_right = 201.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player Four: "
@@ -258,9 +259,9 @@ __meta__ = {
 }
 
 [node name="ScorePlayer4" type="Label" parent="UI/VBoxContainer/Scores/Container4"]
-margin_left = 181.0
-margin_right = 197.0
-margin_bottom = 34.0
+margin_left = 205.0
+margin_right = 223.0
+margin_bottom = 38.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"

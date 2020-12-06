@@ -16,9 +16,9 @@ onready var weapon_area = find_node("WeaponArea")
 var rng = RandomNumberGenerator.new()
 var totem_touched: Node2D = null
 var totem_touched_count := 0
-var alive := true
+var alive := false
 
-export (int, 0, 4) var input_id = 4
+var input_id = -1
 
 func _ready() -> void:
   rng.randomize()
@@ -39,14 +39,14 @@ func touch_totem(totem: Node2D) -> bool:
 func _physics_process(delta: float) -> void:
   if state == State.MOVING:
     var velocity := Vector2()
-    if input_id == 4: #keyboard
+    if input_id == 4:   #keyboard
       velocity.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-    else:             #joystick
+    elif input_id != 4: #joystick
       var axis_x_input := Input.get_joy_axis(input_id, JOY_AXIS_0)
       velocity.x += axis_x_input if abs(axis_x_input) > 0.1 else 0.0;
-    if input_id == 4: #keyboard
+    if input_id == 4:   #keyboard
       velocity.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-    else:             #joystick
+    elif input_id != 4: #joystick
       var axis_y_input := Input.get_joy_axis(input_id, JOY_AXIS_1)
       velocity.y += axis_y_input if abs(axis_y_input) > 0.1 else 0.0;
     velocity = velocity.normalized() * speed

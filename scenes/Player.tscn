@@ -10,8 +10,8 @@ extents = Vector2( 16.5865, 4.36298 )
 extents = Vector2( 15.8375, 9.98166 )
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 7.97134
-height = 15.2579
+radius = 12.1184
+height = 20.1737
 
 [node name="Player" type="KinematicBody2D" groups=[
 "character",
@@ -41,7 +41,8 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponArea"]
-position = Vector2( 23.9729, -17.2305 )
+position = Vector2( 15.7323, -17.2305 )
+rotation = 1.5708
 shape = SubResource( 3 )
 [connection signal="animation_finished" from="Character" to="." method="_on_animation_finished"]
 [connection signal="area_entered" from="WeaponArea" to="." method="_on_WeaponArea_area_entered"]

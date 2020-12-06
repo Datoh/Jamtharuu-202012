@@ -19,11 +19,18 @@ func _ready() -> void:
   for object in $Objects.get_children():
     if object.is_in_group("character"):
       object.init_position(move_area)
-      
+
   scores_label[find_node("Player1")] = find_node("ScorePlayer1")
   scores_label[find_node("Player2")] = find_node("ScorePlayer2")
   scores_label[find_node("Player3")] = find_node("ScorePlayer3")
   scores_label[find_node("Player4")] = find_node("ScorePlayer4")
+  
+  for i in range(Global.players_input_id.size()):
+    if Global.players_input_id[i] != -1:
+      var player = find_node("Player" + str(i+1))
+      player.visible = true
+      player.alive = true
+      player.input_id = Global.players_input_id[i]
   
   find_node("TimerTimeLeft").start()
   set_time()
@@ -41,6 +48,7 @@ func _on_TimerTimeLeft_timeout() -> void:
   if level_duration == 0:
     end()
   
+
 func set_time() -> void:
   var seconds = level_duration % 60
   var minutes = (level_duration - seconds) / 60

@@ -1,0 +1,484 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/m5x7.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/font48.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/images/lobby_touch_totems.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/lobby_find_yourself.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/lobby_player.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/lobby_kill.png" type="Texture" id=6]
+[ext_resource path="res://scripts/Lobby.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "blink"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 0.6, 0.6 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "blink"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 0.6, 0.6 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "blink"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 0.6, 0.6 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "blink"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 0.6, 0.6 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=7]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=8]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1, 2.1 ),
+"transitions": PoolRealArray( 1, 0.6, 6 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="Lobby" type="VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 280.0
+custom_constants/margin_top = 100
+custom_constants/margin_bottom = 100
+
+[node name="Title" type="Label" parent="MarginContainer2"]
+margin_top = 100.0
+margin_right = 1920.0
+margin_bottom = 180.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Seek And Destroy"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_top = 284.0
+margin_right = 1920.0
+margin_bottom = 608.0
+
+[node name="TitleHowToPlay" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 79.0
+size_flags_horizontal = 3
+
+[node name="FindYourself" type="VBoxContainer" parent="VBoxContainer/TitleHowToPlay"]
+margin_right = 637.0
+margin_bottom = 79.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TitleHowToPlay/FindYourself"]
+margin_right = 637.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Find yourself"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KillOthers" type="VBoxContainer" parent="VBoxContainer/TitleHowToPlay"]
+margin_left = 641.0
+margin_right = 1278.0
+margin_bottom = 79.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TitleHowToPlay/KillOthers"]
+margin_right = 637.0
+margin_bottom = 79.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Kill others
+players with A"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchTotems" type="VBoxContainer" parent="VBoxContainer/TitleHowToPlay"]
+margin_left = 1282.0
+margin_right = 1920.0
+margin_bottom = 79.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/TitleHowToPlay/TouchTotems"]
+margin_right = 638.0
+margin_bottom = 79.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Touch the most
+totems"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 83.0
+margin_right = 1920.0
+margin_bottom = 324.0
+custom_constants/margin_top = 40
+
+[node name="ImageHowToPlay" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+margin_top = 40.0
+margin_right = 1920.0
+margin_bottom = 241.0
+
+[node name="FindYourself" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ImageHowToPlay"]
+margin_right = 637.0
+margin_bottom = 201.0
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/ImageHowToPlay/FindYourself"]
+margin_left = 174.0
+margin_right = 462.0
+margin_bottom = 201.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 4 )
+
+[node name="KillOthers" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ImageHowToPlay"]
+margin_left = 641.0
+margin_right = 1278.0
+margin_bottom = 201.0
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/ImageHowToPlay/KillOthers"]
+margin_left = 261.0
+margin_right = 375.0
+margin_bottom = 116.0
+size_flags_horizontal = 4
+size_flags_vertical = 2
+texture = ExtResource( 6 )
+
+[node name="TouchTotems" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ImageHowToPlay"]
+margin_left = 1282.0
+margin_right = 1920.0
+margin_bottom = 201.0
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/ImageHowToPlay/TouchTotems"]
+margin_left = 242.0
+margin_right = 395.0
+margin_bottom = 116.0
+size_flags_horizontal = 4
+size_flags_vertical = 2
+texture = ExtResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_top = 612.0
+margin_right = 1920.0
+margin_bottom = 740.0
+custom_constants/margin_top = 20
+custom_constants/margin_bottom = 70
+
+[node name="Smoke" type="Label" parent="MarginContainer"]
+margin_top = 20.0
+margin_right = 1920.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press Y to launch smoke"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Players" type="VBoxContainer" parent="."]
+margin_top = 744.0
+margin_right = 1920.0
+margin_bottom = 966.0
+
+[node name="Group1" type="HBoxContainer" parent="Players"]
+margin_right = 1920.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer1" type="MarginContainer" parent="Players/Group1"]
+margin_right = 477.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 0, 180 )
+size_flags_horizontal = 3
+
+[node name="Sprite1" type="TextureRect" parent="Players/Group1/MarginContainer1"]
+visible = false
+margin_left = 152.0
+margin_right = 324.0
+margin_bottom = 180.0
+size_flags_horizontal = 4
+texture = ExtResource( 5 )
+
+[node name="LabelPressButton1" type="Label" parent="Players/Group1/MarginContainer1"]
+modulate = Color( 0, 0, 0, 1 )
+margin_top = 50.0
+margin_right = 477.0
+margin_bottom = 129.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press A
+to join"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Players/Group1/MarginContainer1/LabelPressButton1"]
+autoplay = "blink"
+anims/blink = SubResource( 9 )
+
+[node name="MarginContainer2" type="MarginContainer" parent="Players/Group1"]
+margin_left = 481.0
+margin_right = 958.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 0, 180 )
+size_flags_horizontal = 3
+
+[node name="Sprite2" type="TextureRect" parent="Players/Group1/MarginContainer2"]
+visible = false
+margin_left = 152.0
+margin_right = 324.0
+margin_bottom = 180.0
+size_flags_horizontal = 4
+texture = ExtResource( 5 )
+
+[node name="LabelPressButton2" type="Label" parent="Players/Group1/MarginContainer2"]
+modulate = Color( 0, 0, 0, 0.0194195 )
+margin_top = 50.0
+margin_right = 477.0
+margin_bottom = 129.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press A
+to join"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Players/Group1/MarginContainer2/LabelPressButton2"]
+autoplay = "blink"
+anims/blink = SubResource( 10 )
+
+[node name="MarginContainer3" type="MarginContainer" parent="Players/Group1"]
+margin_left = 962.0
+margin_right = 1439.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 0, 180 )
+size_flags_horizontal = 3
+
+[node name="Sprite3" type="TextureRect" parent="Players/Group1/MarginContainer3"]
+visible = false
+margin_left = 152.0
+margin_right = 324.0
+margin_bottom = 180.0
+size_flags_horizontal = 4
+texture = ExtResource( 5 )
+
+[node name="LabelPressButton3" type="Label" parent="Players/Group1/MarginContainer3"]
+modulate = Color( 0, 0, 0, 1 )
+margin_top = 50.0
+margin_right = 477.0
+margin_bottom = 129.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press A
+to join"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Players/Group1/MarginContainer3/LabelPressButton3"]
+autoplay = "blink"
+anims/blink = SubResource( 11 )
+
+[node name="MarginContainer4" type="MarginContainer" parent="Players/Group1"]
+margin_left = 1443.0
+margin_right = 1920.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 0, 180 )
+size_flags_horizontal = 3
+
+[node name="Sprite4" type="TextureRect" parent="Players/Group1/MarginContainer4"]
+visible = false
+margin_left = 152.0
+margin_right = 324.0
+margin_bottom = 180.0
+size_flags_horizontal = 4
+texture = ExtResource( 5 )
+
+[node name="LabelPressButton4" type="Label" parent="Players/Group1/MarginContainer4"]
+modulate = Color( 0, 0, 0, 0.0194195 )
+margin_top = 50.0
+margin_right = 477.0
+margin_bottom = 129.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press A
+to join"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Players/Group1/MarginContainer4/LabelPressButton4"]
+autoplay = "blink"
+anims/blink = SubResource( 12 )
+
+[node name="Group2" type="HBoxContainer" parent="Players"]
+margin_top = 184.0
+margin_right = 1920.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
+
+[node name="LabelPlayer1" type="Label" parent="Players/Group2"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 477.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player One"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPlayer2" type="Label" parent="Players/Group2"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 481.0
+margin_right = 958.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player Two"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPlayer3" type="Label" parent="Players/Group2"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 962.0
+margin_right = 1439.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player Three"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPlayer4" type="Label" parent="Players/Group2"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 1443.0
+margin_right = 1920.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Player Four"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Label" parent="."]
+visible = false
+margin_top = 827.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press Start"
+align = 2
+valign = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Start"]
+autoplay = "blink"
+anims/blink = SubResource( 8 )
