@@ -38,8 +38,8 @@ func _ready() -> void:
 
 func _on_totem_touched(player, totem) -> void:
   if player.touch_totem(totem):
+    $AudioTotem.play()
     scores_label[player].text = str(player.totem_touched_count)
-    print(player, " ", player.totem_touched_count)
 
 
 func _on_TimerTimeLeft_timeout() -> void:

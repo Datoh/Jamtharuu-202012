@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/images/lvl1_background.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Level1.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Totem.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/font48.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/sounds/totem.ogg" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1116.3, 10 )
@@ -272,6 +273,9 @@ __meta__ = {
 [node name="TimerTimeLeft" type="Timer" parent="."]
 
 [node name="Smokes" type="Node2D" parent="."]
+
+[node name="AudioTotem" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 [connection signal="player_die" from="Objects/Player1" to="." method="_on_player_die"]
 [connection signal="smoke" from="Objects/Player1" to="." method="_on_smoke"]
 [connection signal="player_die" from="Objects/Player2" to="." method="_on_player_die"]

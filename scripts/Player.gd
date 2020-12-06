@@ -89,6 +89,7 @@ func fight() -> void:
   animation_player.play("fight")
   weapon_area.scale = sprite.scale
   weapon_area.monitoring = true
+  $AudioFight.play()
 
 
 func die() -> void:
@@ -111,12 +112,14 @@ func fight_result() -> void:
 
 func launch_smoke() -> void:
   state = State.LAUNCHING_SMOKE
+  $AudioSmokeLaunch.play()
   smoke_count -= 1
   animation_player.play("smoke")
 
 
 func apply_smoke() -> void:
   state = State.APPLYING_SMOKE
+  $AudioSmoke.play()
   emit_signal("smoke", position)
   next_state()
 

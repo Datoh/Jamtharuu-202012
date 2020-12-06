@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/totem.ogg-0b809a35a7206d366d5fb20850d3e2e6.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/totem.ogg"
+dest_files=[ "res://.import/totem.ogg-0b809a35a7206d366d5fb20850d3e2e6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

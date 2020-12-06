@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/launch_smoke.ogg-73cc6bd30a687e1a08d18e2610ff62fe.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/launch_smoke.ogg"
+dest_files=[ "res://.import/launch_smoke.ogg-73cc6bd30a687e1a08d18e2610ff62fe.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
