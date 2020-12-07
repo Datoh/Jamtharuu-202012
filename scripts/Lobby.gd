@@ -8,7 +8,10 @@ func _ready() -> void:
   Global.players_scores = [ 0, 0, 0, 0]
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+  if Input.is_action_just_pressed("ui_back_0") or Input.is_action_just_pressed("ui_back_1") or Input.is_action_just_pressed("ui_back_2") or Input.is_action_just_pressed("ui_back_3"):
+    get_tree().quit()
+
   var input_id := -1
   if Input.is_action_just_pressed("ui_fight_0"):
     input_id = 0

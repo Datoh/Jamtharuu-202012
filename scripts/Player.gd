@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (float) var speed := 130
+export (float) var speed := 75
 export (int) var smoke_count := 1
 
 enum State {MOVING, DIYNG, DIED, LAUNCHING_SMOKE, APPLYING_SMOKE, FIGHTING, FIGHTING_RESULT}
@@ -37,6 +37,9 @@ func touch_totem(totem: Node2D) -> bool:
 
 
 func _physics_process(delta: float) -> void:
+  if Input.is_action_just_pressed("ui_back_" + str(input_id)):
+    get_tree().change_scene("res://scenes/Lobby.tscn")
+
   if state == State.MOVING:
     var velocity := Vector2()
     if input_id == 4:   #keyboard
@@ -124,7 +127,7 @@ func apply_smoke() -> void:
   next_state()
 
 
-func _on_animation_finished(anim_name) -> void:
+func _on_animation_finished(_anim_name: String) -> void:
   next_state()
 
 

@@ -23,10 +23,15 @@ config/icon="res://icon.png"
 
 Global="*res://scripts/Global.gd"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=960
+window/size/height=540
+window/size/resizable=false
 window/size/fullscreen=true
 window/stretch/mode="viewport"
 
@@ -100,6 +105,26 @@ ui_start_2={
 ui_start_3={
 "deadzone": 0.5,
 "events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":3,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+ui_back_0={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":10,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+ui_back_1={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":1,"button_index":10,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+ui_back_2={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":2,"button_index":10,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+ui_back_3={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":3,"button_index":10,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
 

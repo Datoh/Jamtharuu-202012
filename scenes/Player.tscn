@@ -7,14 +7,14 @@
 [ext_resource path="res://assets/sounds/launch_smoke.ogg" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.5865, 4.36298 )
+extents = Vector2( 8.34595, 4.36298 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 15.8375, 9.98166 )
+extents = Vector2( 9.46971, 8.48333 )
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 12.1184
-height = 20.1737
+radius = 5.37596
+height = 10.4347
 
 [node name="Player" type="KinematicBody2D" groups=[
 "character",
@@ -24,18 +24,19 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
-position = Vector2( -0.243639, -9.14558 )
+position = Vector2( -0.618212, -0.904888 )
+frame = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -1.49831 )
+position = Vector2( -1.12373, -1.49831 )
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="BodyArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -0.749192, -17.6051 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyArea"]
+position = Vector2( -0.374619, -13.4848 )
 shape = SubResource( 2 )
 
 [node name="WeaponArea" type="Area2D" parent="."]
@@ -44,7 +45,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponArea"]
-position = Vector2( 15.7323, -17.2305 )
+position = Vector2( 10.1136, -14.6085 )
 rotation = 1.5708
 shape = SubResource( 3 )
 

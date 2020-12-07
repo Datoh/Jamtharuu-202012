@@ -20,3 +20,5 @@ func _physics_process(delta: float) -> void:
   for id in Global.players_input_id:
     if id != -1 and Input.is_action_just_pressed("ui_fight_" + str(id)):
       get_tree().change_scene("res://scenes/Level1.tscn")
+    if id != -1 and Input.is_action_just_pressed("ui_back_" + str(id)):
+      get_tree().change_scene("res://scenes/Lobby.tscn")

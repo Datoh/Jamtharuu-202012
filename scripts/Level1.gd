@@ -1,6 +1,6 @@
 extends Node2D
 
-export (int) var NB_BOT := 50
+export (int) var NB_BOT := 40
 export (int) var level_duration := 90
 
 onready var time = find_node("Time")
@@ -56,12 +56,13 @@ func set_time() -> void:
 
 
 func _on_smoke(position) -> void:
-  var smoke = preload("res://scenes/Smoke.tscn").instance()
+  var smoke = preload("res://scenes/SmokeParticules.tscn").instance()
   smoke.position = position
+  smoke.emitting = true
   find_node("Smokes").add_child(smoke)
 
 
-func _on_player_die(player) -> void:
+func _on_player_die(_player: Node2D) -> void:
   var players_alive = 0
   for player in get_tree().get_nodes_in_group("player"):
     players_alive += 1 if player.alive else 0
@@ -73,7 +74,7 @@ func end() -> void:
   var winner = null
   for player in get_tree().get_nodes_in_group("player"):
     if player.alive:
-      if winner == null or winner.score < player.score:
+      if winner == null or winner.totem_touched_count < player.totem_touched_count:
         winner = player
   var winner_id := -1
   if winner == find_node("Player1"):

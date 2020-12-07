@@ -1,23 +1,95 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/images/totem.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Totem.gd" type="Script" id=2]
 
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 28, 40, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 0, 0, 0, 1 )
+
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 19.0094
-height = 21.4785
+radius = 6.26638
+height = 20.5343
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle0"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle1"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle2"
+length = 1.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 0 ]
+}
 
 [node name="Totem" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 2 )
 
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -2.35977, -46.2498 )
+amount = 50
+process_material = SubResource( 5 )
+
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -2.3597, -85.4206 )
+position = Vector2( 0.471935, -43.4183 )
 texture = ExtResource( 1 )
+hframes = 4
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -8.49487 )
+position = Vector2( 0.471954, -2.35972 )
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle0 = SubResource( 2 )
+anims/idle1 = SubResource( 3 )
+anims/idle2 = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_Totem_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (float) var speed := 200
+export (float) var speed := 75
 
 enum State {MOVING, DIYNG, IDLING}
 
@@ -86,5 +86,5 @@ func _on_Timer_timeout() -> void:
   next_state()
 
 
-func _on_animation_finished(anim_name) -> void:
+func _on_animation_finished(_anim_name: String) -> void:
   next_state()
