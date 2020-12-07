@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Jamtharuu-202012"
+config/name="Seek And Destroy"
 run/main_scene="res://scenes/Lobby.tscn"
 config/icon="res://icon.png"
 
