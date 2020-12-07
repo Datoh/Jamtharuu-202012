@@ -107,10 +107,10 @@ __meta__ = {
 }
 
 [node name="Time" type="Label" parent="UI"]
-margin_left = 465.0
-margin_top = 484.0
-margin_right = 495.0
-margin_bottom = 503.0
+margin_left = 460.0
+margin_top = 470.0
+margin_right = 500.0
+margin_bottom = 496.0
 size_flags_horizontal = 4
 size_flags_vertical = 10
 custom_fonts/font = ExtResource( 5 )
@@ -121,7 +121,7 @@ __meta__ = {
 }
 
 [node name="Scores" type="GridContainer" parent="UI"]
-margin_top = 507.0
+margin_top = 500.0
 margin_right = 960.0
 margin_bottom = 526.0
 size_flags_horizontal = 3
@@ -132,15 +132,15 @@ __meta__ = {
 }
 
 [node name="Container1" type="HBoxContainer" parent="UI/Scores"]
-margin_left = 64.0
-margin_right = 172.0
-margin_bottom = 19.0
+margin_left = 48.0
+margin_right = 188.0
+margin_bottom = 26.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="UI/Scores/Container1"]
-margin_right = 95.0
-margin_bottom = 19.0
+margin_right = 124.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player One: "
@@ -149,9 +149,9 @@ __meta__ = {
 }
 
 [node name="ScorePlayer1" type="Label" parent="UI/Scores/Container1"]
-margin_left = 99.0
-margin_right = 108.0
-margin_bottom = 19.0
+margin_left = 128.0
+margin_right = 140.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
@@ -160,15 +160,15 @@ __meta__ = {
 }
 
 [node name="Container2" type="HBoxContainer" parent="UI/Scores"]
-margin_left = 304.0
-margin_right = 415.0
-margin_bottom = 19.0
+margin_left = 287.0
+margin_right = 431.0
+margin_bottom = 26.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="UI/Scores/Container2"]
-margin_right = 98.0
-margin_bottom = 19.0
+margin_right = 128.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player Two: "
@@ -177,9 +177,9 @@ __meta__ = {
 }
 
 [node name="ScorePlayer2" type="Label" parent="UI/Scores/Container2"]
-margin_left = 102.0
-margin_right = 111.0
-margin_bottom = 19.0
+margin_left = 132.0
+margin_right = 144.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
@@ -188,15 +188,15 @@ __meta__ = {
 }
 
 [node name="Container3" type="HBoxContainer" parent="UI/Scores"]
-margin_left = 538.0
-margin_right = 663.0
-margin_bottom = 19.0
+margin_left = 519.0
+margin_right = 681.0
+margin_bottom = 26.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="UI/Scores/Container3"]
-margin_right = 112.0
-margin_bottom = 19.0
+margin_right = 146.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player Three: "
@@ -205,9 +205,9 @@ __meta__ = {
 }
 
 [node name="ScorePlayer3" type="Label" parent="UI/Scores/Container3"]
-margin_left = 116.0
-margin_right = 125.0
-margin_bottom = 19.0
+margin_left = 150.0
+margin_right = 162.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
@@ -216,15 +216,15 @@ __meta__ = {
 }
 
 [node name="Container4" type="HBoxContainer" parent="UI/Scores"]
-margin_left = 783.0
-margin_right = 899.0
-margin_bottom = 19.0
+margin_left = 766.0
+margin_right = 916.0
+margin_bottom = 26.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
 [node name="Label" type="Label" parent="UI/Scores/Container4"]
-margin_right = 103.0
-margin_bottom = 19.0
+margin_right = 134.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player Four: "
@@ -233,9 +233,9 @@ __meta__ = {
 }
 
 [node name="ScorePlayer4" type="Label" parent="UI/Scores/Container4"]
-margin_left = 107.0
-margin_right = 116.0
-margin_bottom = 19.0
+margin_left = 138.0
+margin_right = 150.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"

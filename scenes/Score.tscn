@@ -5,11 +5,11 @@
 [ext_resource path="res://assets/shaders/color_invert.tres" type="Material" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 42
+size = 48
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 36
+size = 32
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -54,14 +54,14 @@ __meta__ = {
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 margin_right = 960.0
-margin_bottom = 134.0
+margin_bottom = 138.0
 size_flags_horizontal = 3
 custom_constants/margin_top = 100
 
 [node name="Winner1" type="Label" parent="HBoxContainer/MarginContainer"]
 margin_top = 100.0
 margin_right = 960.0
-margin_bottom = 134.0
+margin_bottom = 138.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Winner: Player One"
@@ -73,7 +73,7 @@ __meta__ = {
 [node name="Winner2" type="Label" parent="HBoxContainer/MarginContainer"]
 margin_top = 100.0
 margin_right = 960.0
-margin_bottom = 134.0
+margin_bottom = 138.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Winner: Player Two"
@@ -85,7 +85,7 @@ __meta__ = {
 [node name="Winner3" type="Label" parent="HBoxContainer/MarginContainer"]
 margin_top = 100.0
 margin_right = 960.0
-margin_bottom = 134.0
+margin_bottom = 138.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Winner: Player Three"
@@ -97,7 +97,7 @@ __meta__ = {
 [node name="Winner4" type="Label" parent="HBoxContainer/MarginContainer"]
 margin_top = 100.0
 margin_right = 960.0
-margin_bottom = 134.0
+margin_bottom = 138.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Winner: Player Four"
@@ -109,7 +109,7 @@ __meta__ = {
 [node name="Draw" type="Label" parent="HBoxContainer/MarginContainer"]
 margin_top = 100.0
 margin_right = 960.0
-margin_bottom = 134.0
+margin_bottom = 138.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Winner: Draw"
@@ -119,20 +119,20 @@ __meta__ = {
 }
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
-margin_top = 138.0
+margin_top = 142.0
 margin_right = 960.0
-margin_bottom = 426.0
+margin_bottom = 418.0
 custom_constants/margin_top = 100
 
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer/MarginContainer2"]
 margin_top = 100.0
 margin_right = 960.0
-margin_bottom = 288.0
+margin_bottom = 276.0
 columns = 2
 
 [node name="MarginContainer1" type="MarginContainer" parent="HBoxContainer/MarginContainer2/GridContainer"]
-margin_right = 652.0
-margin_bottom = 44.0
+margin_right = 632.0
+margin_bottom = 41.0
 custom_constants/margin_right = 300
 custom_constants/margin_top = 15
 custom_constants/margin_left = 200
@@ -140,25 +140,25 @@ custom_constants/margin_left = 200
 [node name="Label1" type="Label" parent="HBoxContainer/MarginContainer2/GridContainer/MarginContainer1"]
 margin_left = 200.0
 margin_top = 15.0
-margin_right = 352.0
-margin_bottom = 44.0
+margin_right = 332.0
+margin_bottom = 41.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player One"
 
 [node name="Score1" type="Label" parent="HBoxContainer/MarginContainer2/GridContainer"]
-margin_left = 656.0
+margin_left = 636.0
 margin_top = 7.0
-margin_right = 698.0
-margin_bottom = 36.0
+margin_right = 672.0
+margin_bottom = 33.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "100"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/MarginContainer2/GridContainer"]
-margin_top = 48.0
-margin_right = 652.0
-margin_bottom = 92.0
+margin_top = 45.0
+margin_right = 632.0
+margin_bottom = 86.0
 custom_constants/margin_right = 300
 custom_constants/margin_top = 15
 custom_constants/margin_left = 200
@@ -166,25 +166,25 @@ custom_constants/margin_left = 200
 [node name="Label2" type="Label" parent="HBoxContainer/MarginContainer2/GridContainer/MarginContainer2"]
 margin_left = 200.0
 margin_top = 15.0
-margin_right = 352.0
-margin_bottom = 44.0
+margin_right = 332.0
+margin_bottom = 41.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player Two"
 
 [node name="Score2" type="Label" parent="HBoxContainer/MarginContainer2/GridContainer"]
-margin_left = 656.0
-margin_top = 55.0
-margin_right = 698.0
-margin_bottom = 84.0
+margin_left = 636.0
+margin_top = 52.0
+margin_right = 672.0
+margin_bottom = 78.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "100"
 
 [node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/MarginContainer2/GridContainer"]
-margin_top = 96.0
-margin_right = 652.0
-margin_bottom = 140.0
+margin_top = 90.0
+margin_right = 632.0
+margin_bottom = 131.0
 custom_constants/margin_right = 300
 custom_constants/margin_top = 15
 custom_constants/margin_left = 200
@@ -192,25 +192,25 @@ custom_constants/margin_left = 200
 [node name="Label3" type="Label" parent="HBoxContainer/MarginContainer2/GridContainer/MarginContainer3"]
 margin_left = 200.0
 margin_top = 15.0
-margin_right = 352.0
-margin_bottom = 44.0
+margin_right = 332.0
+margin_bottom = 41.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player Three"
 
 [node name="Score3" type="Label" parent="HBoxContainer/MarginContainer2/GridContainer"]
-margin_left = 656.0
-margin_top = 103.0
-margin_right = 698.0
-margin_bottom = 132.0
+margin_left = 636.0
+margin_top = 97.0
+margin_right = 672.0
+margin_bottom = 123.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "100"
 
 [node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/MarginContainer2/GridContainer"]
-margin_top = 144.0
-margin_right = 652.0
-margin_bottom = 188.0
+margin_top = 135.0
+margin_right = 632.0
+margin_bottom = 176.0
 custom_constants/margin_right = 300
 custom_constants/margin_top = 15
 custom_constants/margin_left = 200
@@ -218,24 +218,24 @@ custom_constants/margin_left = 200
 [node name="Label4" type="Label" parent="HBoxContainer/MarginContainer2/GridContainer/MarginContainer4"]
 margin_left = 200.0
 margin_top = 15.0
-margin_right = 352.0
-margin_bottom = 44.0
+margin_right = 332.0
+margin_bottom = 41.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player Four"
 
 [node name="Score4" type="Label" parent="HBoxContainer/MarginContainer2/GridContainer"]
-margin_left = 656.0
-margin_top = 151.0
-margin_right = 698.0
-margin_bottom = 180.0
+margin_left = 636.0
+margin_top = 142.0
+margin_right = 672.0
+margin_bottom = 168.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "100"
 
 [node name="Continue" type="Label" parent="HBoxContainer"]
 modulate = Color( 0, 0, 0, 1 )
-margin_top = 430.0
+margin_top = 422.0
 margin_right = 960.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
