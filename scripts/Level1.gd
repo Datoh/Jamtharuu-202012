@@ -8,6 +8,8 @@ onready var time = find_node("Time")
 var scores_label = {}
 
 func _ready() -> void:
+  find_node("ColorSwitch").visible = Global.color_switch
+
   var move_area_size = $MoveableArea/CollisionShape2D.shape.extents
   var move_area_position = $MoveableArea/CollisionShape2D.get_global_position() - move_area_size
   move_area_size = move_area_size * 2
@@ -34,6 +36,12 @@ func _ready() -> void:
   
   find_node("TimerTimeLeft").start()
   set_time()
+
+
+func _physics_process(_delta: float) -> void:
+  if Input.is_action_just_pressed("ui_color") or Input.is_action_just_pressed("ui_back_1") or Input.is_action_just_pressed("ui_back_2") or Input.is_action_just_pressed("ui_back_3"):
+    Global.color_switch = !Global.color_switch
+    find_node("ColorSwitch").visible = Global.color_switch
 
 
 func _on_totem_touched(player, totem) -> void:

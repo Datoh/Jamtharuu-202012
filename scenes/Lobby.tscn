@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/m5x7.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/font48.tres" type="DynamicFont" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/images/lobby_player.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/lobby_kill.png" type="Texture" id=6]
 [ext_resource path="res://scripts/Lobby.gd" type="Script" id=7]
+[ext_resource path="res://assets/shaders/color_invert.tres" type="Material" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -16,7 +17,7 @@ font_data = ExtResource( 1 )
 size = 24
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=3]
 resource_name = "blink"
 length = 2.0
 loop = true
@@ -33,7 +34,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=4]
 resource_name = "blink"
 length = 2.0
 loop = true
@@ -50,7 +51,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=5]
 resource_name = "blink"
 length = 2.0
 loop = true
@@ -67,7 +68,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=6]
 resource_name = "blink"
 length = 2.0
 loop = true
@@ -84,15 +85,15 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=7]
 size = 20
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=8]
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -108,7 +109,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[node name="Lobby" type="VBoxContainer"]
+[node name="Lobby" type="MarginContainer"]
 margin_right = 960.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
@@ -118,13 +119,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 960.0
+margin_bottom = 540.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 margin_right = 960.0
 margin_bottom = 91.0
 custom_constants/margin_top = 30
 custom_constants/margin_bottom = 20
 
-[node name="Title" type="Label" parent="MarginContainer2"]
+[node name="Title" type="Label" parent="VBoxContainer/MarginContainer2"]
 margin_top = 30.0
 margin_right = 960.0
 margin_bottom = 71.0
@@ -136,22 +146,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 margin_top = 95.0
 margin_right = 960.0
 margin_bottom = 345.0
 
-[node name="TitleHowToPlay" type="HBoxContainer" parent="VBoxContainer"]
+[node name="TitleHowToPlay" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
 margin_right = 960.0
 margin_bottom = 41.0
 size_flags_horizontal = 3
 
-[node name="FindYourself" type="VBoxContainer" parent="VBoxContainer/TitleHowToPlay"]
+[node name="FindYourself" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/TitleHowToPlay"]
 margin_right = 317.0
 margin_bottom = 41.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/TitleHowToPlay/FindYourself"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/TitleHowToPlay/FindYourself"]
 margin_right = 317.0
 margin_bottom = 41.0
 custom_fonts/font = ExtResource( 2 )
@@ -163,13 +173,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="KillOthers" type="VBoxContainer" parent="VBoxContainer/TitleHowToPlay"]
+[node name="KillOthers" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/TitleHowToPlay"]
 margin_left = 321.0
 margin_right = 638.0
 margin_bottom = 41.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/TitleHowToPlay/KillOthers"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/TitleHowToPlay/KillOthers"]
 margin_right = 317.0
 margin_bottom = 41.0
 custom_fonts/font = ExtResource( 2 )
@@ -181,13 +191,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TouchTotems" type="VBoxContainer" parent="VBoxContainer/TitleHowToPlay"]
+[node name="TouchTotems" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/TitleHowToPlay"]
 margin_left = 642.0
 margin_right = 960.0
 margin_bottom = 41.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/TitleHowToPlay/TouchTotems"]
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/TitleHowToPlay/TouchTotems"]
 margin_right = 318.0
 margin_bottom = 41.0
 custom_fonts/font = ExtResource( 2 )
@@ -199,22 +209,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/VBoxContainer"]
 margin_top = 45.0
 margin_right = 960.0
 margin_bottom = 250.0
 custom_constants/margin_top = 0
 
-[node name="ImageHowToPlay" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="ImageHowToPlay" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/MarginContainer"]
 margin_right = 960.0
 margin_bottom = 205.0
 
-[node name="FindYourself" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ImageHowToPlay"]
+[node name="FindYourself" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/MarginContainer/ImageHowToPlay"]
 margin_right = 317.0
 margin_bottom = 205.0
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/ImageHowToPlay/FindYourself"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer/ImageHowToPlay/FindYourself"]
 margin_left = 8.0
 margin_right = 308.0
 margin_bottom = 203.0
@@ -222,13 +232,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource( 4 )
 
-[node name="KillOthers" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ImageHowToPlay"]
+[node name="KillOthers" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/MarginContainer/ImageHowToPlay"]
 margin_left = 321.0
 margin_right = 638.0
 margin_bottom = 205.0
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/ImageHowToPlay/KillOthers"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer/ImageHowToPlay/KillOthers"]
 margin_left = 73.0
 margin_right = 244.0
 margin_bottom = 145.0
@@ -236,13 +246,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 2
 texture = ExtResource( 6 )
 
-[node name="TouchTotems" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ImageHowToPlay"]
+[node name="TouchTotems" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/MarginContainer/ImageHowToPlay"]
 margin_left = 642.0
 margin_right = 960.0
 margin_bottom = 205.0
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/ImageHowToPlay/TouchTotems"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer/MarginContainer/ImageHowToPlay/TouchTotems"]
 margin_left = 47.0
 margin_right = 270.0
 margin_bottom = 205.0
@@ -250,14 +260,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 2
 texture = ExtResource( 3 )
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 margin_top = 349.0
 margin_right = 960.0
 margin_bottom = 378.0
 custom_constants/margin_top = 0
 custom_constants/margin_bottom = 10
 
-[node name="Smoke" type="Label" parent="MarginContainer"]
+[node name="Smoke" type="Label" parent="VBoxContainer/MarginContainer"]
 margin_right = 960.0
 margin_bottom = 19.0
 custom_fonts/font = SubResource( 2 )
@@ -268,23 +278,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Players" type="VBoxContainer" parent="."]
+[node name="Players" type="VBoxContainer" parent="VBoxContainer"]
 margin_top = 382.0
 margin_right = 960.0
 margin_bottom = 495.0
 
-[node name="Group1" type="HBoxContainer" parent="Players"]
+[node name="Group1" type="HBoxContainer" parent="VBoxContainer/Players"]
 margin_right = 960.0
 margin_bottom = 90.0
 size_flags_horizontal = 3
 
-[node name="MarginContainer1" type="MarginContainer" parent="Players/Group1"]
+[node name="MarginContainer1" type="MarginContainer" parent="VBoxContainer/Players/Group1"]
 margin_right = 237.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 0, 90 )
 size_flags_horizontal = 3
 
-[node name="Sprite1" type="TextureRect" parent="Players/Group1/MarginContainer1"]
+[node name="Sprite1" type="TextureRect" parent="VBoxContainer/Players/Group1/MarginContainer1"]
 visible = false
 margin_left = 83.0
 margin_right = 153.0
@@ -292,7 +302,7 @@ margin_bottom = 90.0
 size_flags_horizontal = 4
 texture = ExtResource( 5 )
 
-[node name="LabelPressButton1" type="Label" parent="Players/Group1/MarginContainer1"]
+[node name="LabelPressButton1" type="Label" parent="VBoxContainer/Players/Group1/MarginContainer1"]
 modulate = Color( 0, 0, 0, 1 )
 margin_top = 24.0
 margin_right = 237.0
@@ -306,18 +316,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Players/Group1/MarginContainer1/LabelPressButton1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Players/Group1/MarginContainer1/LabelPressButton1"]
 autoplay = "blink"
-anims/blink = SubResource( 9 )
+anims/blink = SubResource( 3 )
 
-[node name="MarginContainer2" type="MarginContainer" parent="Players/Group1"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Players/Group1"]
 margin_left = 241.0
 margin_right = 478.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 0, 90 )
 size_flags_horizontal = 3
 
-[node name="Sprite2" type="TextureRect" parent="Players/Group1/MarginContainer2"]
+[node name="Sprite2" type="TextureRect" parent="VBoxContainer/Players/Group1/MarginContainer2"]
 visible = false
 margin_left = 83.0
 margin_right = 153.0
@@ -325,7 +335,7 @@ margin_bottom = 90.0
 size_flags_horizontal = 4
 texture = ExtResource( 5 )
 
-[node name="LabelPressButton2" type="Label" parent="Players/Group1/MarginContainer2"]
+[node name="LabelPressButton2" type="Label" parent="VBoxContainer/Players/Group1/MarginContainer2"]
 modulate = Color( 0, 0, 0, 0.0194195 )
 margin_top = 24.0
 margin_right = 237.0
@@ -339,18 +349,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Players/Group1/MarginContainer2/LabelPressButton2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Players/Group1/MarginContainer2/LabelPressButton2"]
 autoplay = "blink"
-anims/blink = SubResource( 10 )
+anims/blink = SubResource( 4 )
 
-[node name="MarginContainer3" type="MarginContainer" parent="Players/Group1"]
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Players/Group1"]
 margin_left = 482.0
 margin_right = 719.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 0, 90 )
 size_flags_horizontal = 3
 
-[node name="Sprite3" type="TextureRect" parent="Players/Group1/MarginContainer3"]
+[node name="Sprite3" type="TextureRect" parent="VBoxContainer/Players/Group1/MarginContainer3"]
 visible = false
 margin_left = 83.0
 margin_right = 153.0
@@ -358,7 +368,7 @@ margin_bottom = 90.0
 size_flags_horizontal = 4
 texture = ExtResource( 5 )
 
-[node name="LabelPressButton3" type="Label" parent="Players/Group1/MarginContainer3"]
+[node name="LabelPressButton3" type="Label" parent="VBoxContainer/Players/Group1/MarginContainer3"]
 modulate = Color( 0, 0, 0, 1 )
 margin_top = 24.0
 margin_right = 237.0
@@ -372,18 +382,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Players/Group1/MarginContainer3/LabelPressButton3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Players/Group1/MarginContainer3/LabelPressButton3"]
 autoplay = "blink"
-anims/blink = SubResource( 11 )
+anims/blink = SubResource( 5 )
 
-[node name="MarginContainer4" type="MarginContainer" parent="Players/Group1"]
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/Players/Group1"]
 margin_left = 723.0
 margin_right = 960.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 0, 90 )
 size_flags_horizontal = 3
 
-[node name="Sprite4" type="TextureRect" parent="Players/Group1/MarginContainer4"]
+[node name="Sprite4" type="TextureRect" parent="VBoxContainer/Players/Group1/MarginContainer4"]
 visible = false
 margin_left = 83.0
 margin_right = 153.0
@@ -391,7 +401,7 @@ margin_bottom = 90.0
 size_flags_horizontal = 4
 texture = ExtResource( 5 )
 
-[node name="LabelPressButton4" type="Label" parent="Players/Group1/MarginContainer4"]
+[node name="LabelPressButton4" type="Label" parent="VBoxContainer/Players/Group1/MarginContainer4"]
 modulate = Color( 0, 0, 0, 0.0194195 )
 margin_top = 24.0
 margin_right = 237.0
@@ -405,17 +415,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Players/Group1/MarginContainer4/LabelPressButton4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Players/Group1/MarginContainer4/LabelPressButton4"]
 autoplay = "blink"
-anims/blink = SubResource( 12 )
+anims/blink = SubResource( 6 )
 
-[node name="Group2" type="HBoxContainer" parent="Players"]
+[node name="Group2" type="HBoxContainer" parent="VBoxContainer/Players"]
 margin_top = 94.0
 margin_right = 960.0
 margin_bottom = 113.0
 size_flags_horizontal = 3
 
-[node name="LabelPlayer1" type="Label" parent="Players/Group2"]
+[node name="LabelPlayer1" type="Label" parent="VBoxContainer/Players/Group2"]
 modulate = Color( 0, 0, 0, 1 )
 margin_right = 237.0
 margin_bottom = 19.0
@@ -428,7 +438,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelPlayer2" type="Label" parent="Players/Group2"]
+[node name="LabelPlayer2" type="Label" parent="VBoxContainer/Players/Group2"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 241.0
 margin_right = 478.0
@@ -442,7 +452,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelPlayer3" type="Label" parent="Players/Group2"]
+[node name="LabelPlayer3" type="Label" parent="VBoxContainer/Players/Group2"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 482.0
 margin_right = 719.0
@@ -456,7 +466,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelPlayer4" type="Label" parent="Players/Group2"]
+[node name="LabelPlayer4" type="Label" parent="VBoxContainer/Players/Group2"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 723.0
 margin_right = 960.0
@@ -470,37 +480,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 499.0
 margin_right = 960.0
 margin_bottom = 540.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Copyright" type="Label" parent="HBoxContainer"]
+[node name="Copyright" type="Label" parent="VBoxContainer/HBoxContainer"]
 modulate = Color( 0.01838, 0.01838, 0.01838, 0.98162 )
-margin_right = 960.0
-margin_bottom = 41.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 13 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = " @datoh - 2020"
-valign = 2
-
-[node name="Start" type="Label" parent="HBoxContainer"]
-visible = false
-margin_left = 482.0
 margin_right = 960.0
 margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = " @datoh - 2020 - [F1] Switch colors"
+valign = 2
+
+[node name="Start" type="Label" parent="VBoxContainer/HBoxContainer"]
+visible = false
+margin_left = 482.0
+margin_right = 960.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Press Start"
 align = 2
 valign = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/Start"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/HBoxContainer/Start"]
 autoplay = "blink"
-anims/blink = SubResource( 8 )
+anims/blink = SubResource( 9 )
+
+[node name="ColorSwitch" type="ColorRect" parent="."]
+material = ExtResource( 8 )
+margin_right = 960.0
+margin_bottom = 540.0

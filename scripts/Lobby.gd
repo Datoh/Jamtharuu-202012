@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends MarginContainer
 
 var next_player := 0
 var ready_to_start := false
@@ -6,11 +6,15 @@ var ready_to_start := false
 func _ready() -> void:
   Global.players_input_id = [ -1, -1, -1, -1]
   Global.players_scores = [ 0, 0, 0, 0]
+  find_node("ColorSwitch").visible = Global.color_switch
 
 
 func _physics_process(_delta: float) -> void:
   if Input.is_action_just_pressed("ui_back_0") or Input.is_action_just_pressed("ui_back_1") or Input.is_action_just_pressed("ui_back_2") or Input.is_action_just_pressed("ui_back_3"):
     get_tree().quit()
+  if Input.is_action_just_pressed("ui_color") or Input.is_action_just_pressed("ui_back_1") or Input.is_action_just_pressed("ui_back_2") or Input.is_action_just_pressed("ui_back_3"):
+    Global.color_switch = !Global.color_switch
+    find_node("ColorSwitch").visible = Global.color_switch
 
   var input_id := -1
   if Input.is_action_just_pressed("ui_fight_0"):
